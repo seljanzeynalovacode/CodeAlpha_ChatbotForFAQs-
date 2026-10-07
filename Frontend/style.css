@@ -1,0 +1,199 @@
+:root {
+    --bg-color: #f4f7f6;
+    --chat-bg: #ffffff;
+    --text-color: #333333;
+    --header-bg: #2b3a4a;
+    --header-text: #ffffff;
+    --bot-msg-bg: #e9ecef;
+    --bot-msg-text: #333333;
+    --user-msg-bg: #ff7a59; /* Modern narıncı tonu */
+    --user-msg-text: #ffffff;
+    --input-border: #e0e0e0;
+    --input-bg: #ffffff;
+    --button-bg: #ff7a59;
+    --button-hover: #e86c4e;
+}
+
+/* Dark Mode Rəngləri */
+[data-theme="dark"] {
+    --bg-color: #1a1a2e;
+    --chat-bg: #16213e;
+    --text-color: #e0e0e0;
+    --header-bg: #0f3460;
+    --header-text: #ffffff;
+    --bot-msg-bg: #2a3654;
+    --bot-msg-text: #e0e0e0;
+    --user-msg-bg: #e94560; /* Dark mode üçün qırmızımtıl ton */
+    --user-msg-text: #ffffff;
+    --input-border: #2a3654;
+    --input-bg: #1a1a2e;
+    --button-bg: #e94560;
+    --button-hover: #d13a52;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 420px;
+    height: 85vh;
+    max-height: 700px;
+    background: var(--chat-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.chat-header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-info h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.status {
+    font-size: 12px;
+    color: #4ade80;
+}
+
+.bot-icon {
+    font-size: 26px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.15);
+}
+
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Scrollbar Dizaynı */
+.chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background: var(--input-border);
+    border-radius: 10px;
+}
+
+.message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.5;
+    font-size: 15px;
+    animation: fadeIn 0.3s ease-out;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.bot-message {
+    background: var(--bot-msg-bg);
+    color: var(--bot-msg-text);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.user-message {
+    background: var(--user-msg-bg);
+    color: var(--user-msg-text);
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.input-area {
+    display: flex;
+    padding: 15px;
+    background: var(--chat-bg);
+    border-top: 1px solid var(--input-border);
+    gap: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#user-input {
+    flex: 1;
+    padding: 12px 18px;
+    border: 1px solid var(--input-border);
+    border-radius: 25px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+#user-input:focus {
+    border-color: var(--button-bg);
+    box-shadow: 0 0 5px rgba(255, 122, 89, 0.3);
+}
+
+#send-btn {
+    padding: 10px 22px;
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#send-btn:hover {
+    background: var(--button-hover);
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
