@@ -26,7 +26,7 @@ CodeAlpha_ChatbotForFAQs/
 │   ├── app.py                 # Main Flask server and API endpoints
 │   ├── chatbot_logic.py       # NLP logic, TF-IDF, and Cosine Similarity functions
 │   ├── faqs.json              # Knowledge base containing IoT questions and answers
-│   └── requirements.txt       # Python dependencies
+│
 │
 └── Frontend/
     ├── index.html             # Chatbot UI structure
