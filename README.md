@@ -40,7 +40,7 @@ Follow these step-by-step instructions to get the chatbot running on your local 
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/seljanzeynalovacode/CodeAlpha_ChatbotForFAQs.git
+git clone https://github.com/seljanzeynalovacode/CodeAlpha_ChatbotForFAQs-.git
 cd CodeAlpha_ChatbotForFAQs
 ```
 
