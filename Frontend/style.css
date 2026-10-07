@@ -1,34 +1,35 @@
 :root {
-    --bg-color: #f4f7f6;
+    /* Light Mode Gradient Theme */
+    --bg-color: #f0f4f8;
     --chat-bg: #ffffff;
     --text-color: #333333;
-    --header-bg: #2b3a4a;
+    --header-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --header-text: #ffffff;
-    --bot-msg-bg: #e9ecef;
+    --bot-msg-bg: #f1f3f5;
     --bot-msg-text: #333333;
-    --user-msg-bg: #ff7a59; /* Modern narıncı tonu */
+    --user-msg-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --user-msg-text: #ffffff;
-    --input-border: #e0e0e0;
+    --input-border: #e2e8f0;
     --input-bg: #ffffff;
-    --button-bg: #ff7a59;
-    --button-hover: #e86c4e;
+    --button-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --shadow-color: rgba(102, 126, 234, 0.3);
 }
 
-/* Dark Mode Rəngləri */
+/* Dark Mode Gradient Theme */
 [data-theme="dark"] {
-    --bg-color: #1a1a2e;
-    --chat-bg: #16213e;
-    --text-color: #e0e0e0;
-    --header-bg: #0f3460;
+    --bg-color: #0f172a;
+    --chat-bg: #1e293b;
+    --text-color: #f8fafc;
+    --header-bg: linear-gradient(135deg, #3b2667 0%, #bc78ec 100%);
     --header-text: #ffffff;
-    --bot-msg-bg: #2a3654;
-    --bot-msg-text: #e0e0e0;
-    --user-msg-bg: #e94560; /* Dark mode üçün qırmızımtıl ton */
+    --bot-msg-bg: #334155;
+    --bot-msg-text: #f8fafc;
+    --user-msg-bg: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
     --user-msg-text: #ffffff;
-    --input-border: #2a3654;
-    --input-bg: #1a1a2e;
-    --button-bg: #e94560;
-    --button-hover: #d13a52;
+    --input-border: #334155;
+    --input-bg: #0f172a;
+    --button-bg: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    --shadow-color: rgba(139, 92, 246, 0.3);
 }
 
 * {
@@ -45,7 +46,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .chat-container {
@@ -54,8 +55,8 @@ body {
     height: 85vh;
     max-height: 700px;
     background: var(--chat-bg);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -65,11 +66,11 @@ body {
 .chat-header {
     background: var(--header-bg);
     color: var(--header-text);
-    padding: 15px 20px;
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .header-info {
@@ -78,30 +79,40 @@ body {
     gap: 12px;
 }
 
+.bot-icon {
+    font-size: 28px;
+    color: #ffffff;
+}
+
 .header-info h2 {
     font-size: 18px;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .status {
     font-size: 12px;
     color: #4ade80;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.bot-icon {
-    font-size: 26px;
+.status i {
+    font-size: 8px;
 }
 
 .theme-toggle {
     background: none;
     border: none;
-    font-size: 22px;
+    color: #ffffff;
+    font-size: 20px;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
 .theme-toggle:hover {
-    transform: scale(1.15);
+    transform: rotate(20deg) scale(1.1);
 }
 
 .chat-box {
@@ -111,9 +122,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    scroll-behavior: smooth;
 }
 
-/* Scrollbar Dizaynı */
 .chat-box::-webkit-scrollbar {
     width: 6px;
 }
@@ -126,14 +137,14 @@ body {
 }
 
 .message {
-    padding: 12px 18px;
-    border-radius: 20px;
-    max-width: 85%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    max-width: 80%;
     line-height: 1.5;
     font-size: 15px;
     animation: fadeIn 0.3s ease-out;
     word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .bot-message {
@@ -155,13 +166,12 @@ body {
     padding: 15px;
     background: var(--chat-bg);
     border-top: 1px solid var(--input-border);
-    gap: 10px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    gap: 12px;
 }
 
 #user-input {
     flex: 1;
-    padding: 12px 18px;
+    padding: 12px 20px;
     border: 1px solid var(--input-border);
     border-radius: 25px;
     background: var(--input-bg);
@@ -172,28 +182,32 @@ body {
 }
 
 #user-input:focus {
-    border-color: var(--button-bg);
-    box-shadow: 0 0 5px rgba(255, 122, 89, 0.3);
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px var(--shadow-color);
 }
 
 #send-btn {
-    padding: 10px 22px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
     background: var(--button-bg);
     color: white;
     border: none;
-    border-radius: 25px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 #send-btn:hover {
-    background: var(--button-hover);
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-color);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
